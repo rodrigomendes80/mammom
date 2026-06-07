@@ -1,12 +1,18 @@
 import os
 import psycopg2
-from dotenv import load_dotenv
 
-load_dotenv()
+# Tenta ler do Streamlit Secrets (produção), senão cai no .env (local)
+try:
+    import streamlit as st
+    DATABASE_URL = st.secrets["DATABASE_URL"]
+except Exception:
+    from dotenv import load_dotenv
+    load_dotenv()
+    DATABASE_URL = os.getenv("DATABASE_URL")
 
 def get_connection():
     try:
-        conn = psycopg2.connect(os.getenv("DATABASE_URL"))
+        conn = psycopg2.connect(DATABASE_URL)
         return conn
     except Exception as e:
         raise ConnectionError(f"Erro ao conectar ao banco: {e}")
