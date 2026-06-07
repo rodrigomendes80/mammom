@@ -1,0 +1,5 @@
+__pycache__/
+.env
+.venv/
+.streamlit/
+database/*.db  # Se você usa SQLite, não suba o banco de dados local
