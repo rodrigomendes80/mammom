@@ -118,16 +118,17 @@ with st.sidebar:
     authenticator.logout("🚪 Sair", "sidebar")
 
 # ── NAVEGAÇÃO ────────────────────────────────────────────
-dashboard      = st.Page("views/dashboard.py",      title="Dashboard",        icon="📊")
-cadastros      = st.Page("views/cadastros.py",      title="Cadastros",        icon="🗂️")
-contas_pagar   = st.Page("views/contas_pagar.py",   title="Contas a Pagar",   icon="📉")
-contas_receber = st.Page("views/contas_receber.py", title="Contas a Receber", icon="📈")
-fluxo_caixa    = st.Page("views/fluxo_caixa.py",   title="Fluxo de Caixa",   icon="🧮")
+dashboard       = st.Page("views/dashboard.py",       title="Dashboard",        icon="📊")
+cadastros       = st.Page("views/cadastros.py",       title="Cadastros",        icon="🗂️")
+contas_pagar    = st.Page("views/contas_pagar.py",    title="Contas a Pagar",   icon="📉")
+contas_receber  = st.Page("views/contas_receber.py",  title="Contas a Receber", icon="📈")
+fluxo_caixa     = st.Page("views/fluxo_caixa.py",    title="Fluxo de Caixa",   icon="🧮")
+transferencias  = st.Page("views/transferencias.py",  title="Transferências",   icon="💸")  # ← NOVO
 
 pg = st.navigation({
     "Visão Geral":   [dashboard],
     "Cadastros":     [cadastros],
-    "Movimentações": [contas_pagar, contas_receber, fluxo_caixa],
+    "Movimentações": [contas_pagar, contas_receber, fluxo_caixa, transferencias],  # ← INCLUÍDO AQUI
 })
 
 pg.run()
